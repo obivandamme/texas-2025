@@ -4,9 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy": "npm run build && npm run move-dist",
+    "dev": "vite",
     "lint": "eslint .",
+    "move-dist": "ts-node --loader ts-node/esm scripts/move-dist.ts",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,12 +17,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/fs-extra": "^11.0.4",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
+    "fs-extra": "^11.2.0",
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
